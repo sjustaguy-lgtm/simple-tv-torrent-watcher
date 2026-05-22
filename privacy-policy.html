@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Simple TV Torrent Watcher</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; max-width: 800px; margin: 40px auto; padding: 0 20px; color: #333; }
+        h1 { border-bottom: 2px solid #eaeaea; padding-bottom: 10px; }
+        h2 { margin-top: 30px; }
+        .highlight-box { background-color: #f9f9f9; border-left: 4px solid #0066cc; padding: 15px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+
+    <h1>Privacy Policy for Simple TV Torrent Watcher</h1>
+    <p><strong>Effective Date:</strong> May 22, 2026</p>
+
+    <p>Simple TV Torrent Watcher is committed to providing a secure, transparent, and localized user experience. This Privacy Policy outlines our data management principles and practices.</p>
+
+    <h2>1. Data Collection and Transmission</h2>
+    <p>Simple TV Torrent Watcher operates as a local-first browser extension.</p>
+    <ul>
+        <li><strong>No Developer Collection:</strong> The developer does not collect, harvest, store, sell, or receive personally identifiable information, browsing history, user credentials, IP addresses, watchlists, or torrent-client settings.</li>
+        <li><strong>Local Storage:</strong> Application configuration settings, TV watchlists, optional torrent-client connection settings, and episode tracking strings are saved inside your browser profile using the <code>chrome.storage.local</code> API. This data is stored on your device and is not accessible to the developer.</li>
+    </ul>
+
+    <h2>2. Third-Party API Interactions</h2>
+    <p>To deliver its core features, the extension interacts directly with public endpoints and user-configured local services through network requests initiated from your browser:</p>
+    <ul>
+        <li><strong>TVMaze API:</strong> Title resolution queries may be sent to public TVMaze metadata endpoints to cross-reference show title text. No user-specific tokens are sent during these lookups.</li>
+        <li><strong>EZTV Page/API Access:</strong> The extension reads supported EZTV pages and related public endpoint responses to compare visible release information against your local watchlist. The extension does not upload analytics or tracking data from these actions.</li>
+        <li><strong>Local Client RPC/WebUI:</strong> When configured by the user, selected magnet links may be sent directly to the user's own torrent client WebUI/RPC endpoint over localhost or a local/private network address. These requests are sent directly from the browser to the user-configured client.</li>
+    </ul>
+
+    <div class="highlight-box">
+        <h2>3. Chrome Web Store Limited Use Compliance</h2>
+        <p>Simple TV Torrent Watcher is designed to comply with Chrome Web Store Developer Program Policies.</p>
+        <p><strong>The extension does not sell user data, transfer user data to advertising platforms, transfer user data to data brokers, or use user data to evaluate creditworthiness.</strong></p>
+        <p>User data handled by the extension is limited to supporting the extension's single purpose: maintaining a local TV watchlist, checking supported public metadata/release sources, and sending user-selected magnet links to a user-configured torrent client.</p>
+    </div>
+
+    <h2>4. Changes to This Policy</h2>
+    <p>Updates or adjustments to this policy may be included with future extension updates or published on the extension's public listing or project page.</p>
+
+    <h2>5. Contact</h2>
+    <p>For questions about this privacy policy, please contact the developer through the contact channel listed on the extension's distribution marketplace page or project repository.</p>
+
+</body>
+</html>

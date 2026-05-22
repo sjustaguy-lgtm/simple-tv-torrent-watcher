@@ -1,16 +1,18 @@
 # Simple TV Torrent Watcher
 
-Privacy policy and Chrome Web Store submission assets for Simple TV Torrent Watcher.
+Privacy policy page for the Simple TV Torrent Watcher Chrome Web Store listing.
 
 ## Privacy Policy
 
-This repo publishes the privacy policy for the Chrome Web Store listing:
+The privacy policy is available in this repository as:
 
 - `index.html`
 - `privacy-policy.html`
 
-## Chrome Web Store Assets
+After GitHub Pages is enabled, the public privacy policy URL should be:
 
-- Upload package: `webstore/chrome-web-store-upload.zip`
-- Icons: `assets/icons/`
-- Screenshots: `assets/screenshots/`
+`https://sjustaguy-lgtm.github.io/simple-tv-torrent-watcher/`
+
+## Chrome Web Store Upload Package
+
+The Chrome Web Store extension zip, icons, and screenshots are stored locally on the developer machine in the project `share-package` folder, not in this public repository.

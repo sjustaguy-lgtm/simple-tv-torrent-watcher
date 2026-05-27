@@ -6,7 +6,7 @@ Simple TV Torrent Watcher is a Chrome/Brave browser extension that keeps a local
 
 ## Best Ways To Add A Show
 
-Paste into **Add Show to Watchlist** or the bulk import box. The scanner ignores quality words such as `1080p`, `720p`, `HEVC`, and `x265` when figuring out the show name.
+Paste into **Add Show to Watchlist** or the bulk import box. The scanner ignores codec words such as `HEVC` and `x265` when figuring out the show name. Quality words such as `1080p` and `720p` are kept as that show's first quality choice.
 
 | What you type | What it does |
 | --- | --- |
@@ -17,7 +17,7 @@ Paste into **Add Show to Watchlist** or the bulk import box. The scanner ignores
 | `breaking bad 2x05` | Same as `S02E05` using the alternate episode format. |
 | `breaking bad season 2` | Same as `s02`; adds the whole season starting from `S02E00`. |
 | `breaking bad season 2 episode 5` | Same as `S02E05`. |
-| `the office 1080p s03` | Ignores `1080p`, adds season 3 starting from `S03E00`. |
+| `the office 1080p s03` | Adds season 3 starting from `S03E00` and prefers `1080p` first. |
 | `FROM S02E00` | Adds `FROM` season 2 from the beginning without scanning every older season. |
 | `M.I.A | S01E09` | Import/export format; saves `M.I.A` with `S01E09` as the last episode already handled. |
 

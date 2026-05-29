@@ -1,51 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Simple TV Torrent Watcher</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; max-width: 800px; margin: 40px auto; padding: 0 20px; color: #333; }
-        h1 { border-bottom: 2px solid #eaeaea; padding-bottom: 10px; }
-        h2 { margin-top: 30px; }
-        .highlight-box { background-color: #f9f9f9; border-left: 4px solid #0066cc; padding: 15px; margin: 20px 0; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple TV Torrent Watcher</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17202a;
+      --muted: #51606f;
+      --line: #d8e1ea;
+      --blue: #135da8;
+      --soft: #f4f8fb;
+    }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.55;
+      color: var(--ink);
+      background: #ffffff;
+    }
+    main {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 40px 20px 56px;
+    }
+    header {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 24px;
+      margin-bottom: 28px;
+    }
+    h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+      margin: 0 0 12px;
+    }
+    h2 {
+      margin: 32px 0 10px;
+      font-size: 1.35rem;
+    }
+    p {
+      margin: 0 0 14px;
+    }
+    a {
+      color: var(--blue);
+      font-weight: 650;
+    }
+    ul {
+      padding-left: 22px;
+    }
+    li {
+      margin: 6px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 0.95rem;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 9px 10px;
+      vertical-align: top;
+      text-align: left;
+    }
+    th {
+      background: var(--soft);
+    }
+    code {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      padding: 1px 5px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.92em;
+    }
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .button {
+      display: inline-block;
+      border: 1px solid var(--blue);
+      border-radius: 7px;
+      padding: 9px 13px;
+      text-decoration: none;
+      background: var(--blue);
+      color: #ffffff;
+    }
+    .button.secondary {
+      background: #ffffff;
+      color: var(--blue);
+    }
+    .note {
+      background: var(--soft);
+      border-left: 4px solid var(--blue);
+      padding: 14px 16px;
+      margin: 18px 0;
+    }
+    .muted {
+      color: var(--muted);
+    }
+  </style>
 </head>
 <body>
+  <main>
+    <header>
+      <h1>Simple TV Torrent Watcher</h1>
+      <p class="muted">A local-first browser extension written for Brave and usable on Chromium-based browsers.</p>
+      <div class="links">
+        <a class="button" href="https://chromewebstore.google.com/detail/kdmhdojmjaececadkhjgkcfalgjnfahi?utm_source=item-share-cb">Install from Chrome Web Store</a>
+        <a class="button secondary" href="privacy-policy.html">Privacy Policy</a>
+        <a class="button secondary" href="https://github.com/sjustaguy-lgtm/simple-tv-torrent-watcher">GitHub Repository</a>
+      </div>
+    </header>
 
-    <h1>Privacy Policy for Simple TV Torrent Watcher</h1>
-    <p><strong>Effective Date:</strong> May 22, 2026</p>
+    <section>
+      <h2>What It Does</h2>
+      <p>Simple TV Torrent Watcher adds a watchlist and new-episode scanner to supported EZTV pages, can check user-added RSS feeds, and can send selected magnet links to a supported torrent client WebUI or to the local torrent app on the same computer.</p>
+      <ul>
+        <li>Adds <strong>Scan for New Episodes</strong>, <strong>Watchlist</strong>, <strong>Add Show to Watchlist</strong>, and <strong>Settings</strong> buttons on supported EZTV pages.</li>
+        <li>Keeps your show watchlist in browser storage.</li>
+        <li>Imports and exports backup lines like <code>M.I.A | S01E09</code>.</li>
+        <li>Imports qBittorrent-style filenames like <code>Show.Name.S02E06.1080p</code>.</li>
+        <li>Supports whole-season requests like <code>FROM S02E00</code>.</li>
+        <li>Checks EZTV, TVMaze, and optional user-added RSS feeds.</li>
+      </ul>
+    </section>
 
-    <p>Simple TV Torrent Watcher is committed to providing a secure, transparent, and localized user experience. This Privacy Policy outlines our data management principles and practices.</p>
+    <section>
+      <h2>Supported Torrent Clients</h2>
+      <p>Direct WebUI/RPC support is included for qBittorrent, Transmission, Deluge, uTorrent, BitTorrent, and aria2. You can also use same-computer magnet mode if you want your browser to open magnets in the local torrent app.</p>
+    </section>
 
-    <h2>1. Data Collection and Transmission</h2>
-    <p>Simple TV Torrent Watcher operates as a local-first browser extension.</p>
-    <ul>
-        <li><strong>No Developer Collection:</strong> The developer does not collect, harvest, store, sell, or receive personally identifiable information, browsing history, user credentials, IP addresses, watchlists, or torrent-client settings.</li>
-        <li><strong>Local Storage:</strong> Application configuration settings, TV watchlists, optional torrent-client connection settings, and episode tracking strings are saved inside your browser profile using the <code>chrome.storage.local</code> API. This data is stored on your device and is not accessible to the developer.</li>
-    </ul>
+    <section>
+      <h2>Best Ways To Add A Show</h2>
+      <p>Paste into <strong>Add Show to Watchlist</strong> or the bulk import box. Codec words such as <code>HEVC</code> and <code>x265</code> are ignored when figuring out the show name. Quality words such as <code>1080p</code> are kept as that show's first quality choice.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>What you type</th>
+            <th>What it does</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>FROM</code></td><td>Adds the show and tracks it from now on.</td></tr>
+          <tr><td><code>FROM s02</code></td><td>Adds season 2 and starts from <code>S02E00</code>, so episode 1 and newer in season 2 can be found.</td></tr>
+          <tr><td><code>FROM S02E00</code></td><td>Useful when you want the whole season.</td></tr>
+          <tr><td><code>FROM s02e05</code></td><td>Marks episode 5 as already handled, so scans look for newer season 2 episodes.</td></tr>
+          <tr><td><code>FROM 2x05</code></td><td>Same as <code>S02E05</code> using the alternate episode format.</td></tr>
+          <tr><td><code>FROM season 2</code></td><td>Adds the whole season starting from <code>S02E00</code>.</td></tr>
+          <tr><td><code>FROM season 2 episode 5</code></td><td>Same as <code>S02E05</code>.</td></tr>
+          <tr><td><code>FROM 1080p s03</code></td><td>Adds season 3 starting from <code>S03E00</code> and prefers <code>1080p</code> first.</td></tr>
+          <tr><td><code>M.I.A | S01E09</code></td><td>Import/export format; saves <code>M.I.A</code> with <code>S01E09</code> as the last episode already handled.</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Tip: use <code>S02E00</code> when you want the whole season. Use <code>S02E05</code> when you already have episode 5 and only want newer episodes.</p>
+    </section>
 
-    <h2>2. Third-Party API Interactions</h2>
-    <p>To deliver its core features, the extension interacts directly with public endpoints and user-configured local services through network requests initiated from your browser:</p>
-    <ul>
-        <li><strong>TVMaze API:</strong> Title resolution queries may be sent to public TVMaze metadata endpoints to cross-reference show title text. No user-specific tokens are sent during these lookups.</li>
-        <li><strong>EZTV Page/API Access:</strong> The extension reads supported EZTV pages and related public endpoint responses to compare visible release information against your local watchlist. The extension does not upload analytics or tracking data from these actions.</li>
-        <li><strong>User-Configured RSS Feeds:</strong> If the user adds an RSS feed URL, the extension may request that feed directly from the browser to compare release titles against the local watchlist. RSS feed addresses are stored locally and are not sent to the developer.</li>
-        <li><strong>Local Client RPC/WebUI:</strong> When configured by the user, selected magnet links may be sent directly to the user's own torrent client WebUI/RPC endpoint over localhost or a local/private network address. These requests are sent directly from the browser to the user-configured client.</li>
-    </ul>
+    <section>
+      <h2>Privacy</h2>
+      <p>The extension is local-first. Watchlists, settings, custom RSS feed addresses, and torrent-client connection settings are stored in your browser profile using browser storage.</p>
+      <p>The developer does not collect, receive, sell, or store your watchlist, browsing history, torrent-client settings, credentials, IP address, or analytics.</p>
+    </section>
 
-    <div class="highlight-box">
-        <h2>3. Chrome Web Store Limited Use Compliance</h2>
-        <p>Simple TV Torrent Watcher is designed to comply with Chrome Web Store Developer Program Policies.</p>
-        <p><strong>The extension does not sell user data, transfer user data to advertising platforms, transfer user data to data brokers, or use user data to evaluate creditworthiness.</strong></p>
-        <p>User data handled by the extension is limited to supporting the extension's single purpose: maintaining a local TV watchlist, checking supported or user-configured metadata/release sources, and sending user-selected magnet links to a user-configured torrent client.</p>
-    </div>
+    <section>
+      <h2>Public Pages</h2>
+      <ul>
+        <li><a href="privacy-policy.html">Privacy policy</a></li>
+        <li><a href="https://github.com/sjustaguy-lgtm/simple-tv-torrent-watcher">GitHub repository</a></li>
+        <li><a href="https://chromewebstore.google.com/detail/kdmhdojmjaececadkhjgkcfalgjnfahi?utm_source=item-share-cb">Chrome Web Store listing</a></li>
+      </ul>
+    </section>
 
-    <h2>4. Changes to This Policy</h2>
-    <p>Updates or adjustments to this policy may be included with future extension updates or published on the extension's public listing or project page.</p>
-
-    <h2>5. Contact</h2>
-    <p>For questions about this privacy policy, please contact the developer through the contact channel listed on the extension's distribution marketplace page or project repository.</p>
-
+    <section>
+      <h2>Legal Note</h2>
+      <p>This project is only a browser extension for managing a local TV watchlist and opening or sending magnet links selected by the user. Use it only where legal in your country.</p>
+    </section>
+  </main>
 </body>
 </html>

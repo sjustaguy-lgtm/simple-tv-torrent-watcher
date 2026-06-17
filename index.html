@@ -27,7 +27,7 @@
   <main>
     <header>
       <h1>Simple TV Torrent Watcher</h1>
-      <p class="muted">Version 2.0.3. A local-first browser extension written for Brave and usable on Chromium-based browsers.</p>
+      <p class="muted">Version 2.0.4. A local-first browser extension written for Brave and usable on Chromium-based browsers.</p>
       <div class="links">
         <a class="button" href="https://chromewebstore.google.com/detail/kdmhdojmjaececadkhjgkcfalgjnfahi?utm_source=item-share-cb">Install from Chrome Web Store</a>
         <a class="button secondary" href="privacy-policy.html">Privacy Policy</a>
@@ -40,12 +40,13 @@
       <p>Simple TV Torrent Watcher adds a watchlist and new-episode scanner to supported EZTV pages, can check user-added RSS feeds, and can send selected magnet links to a supported torrent client WebUI or to the local torrent app on the same computer.</p>
       <ul>
         <li>Adds <strong>Scan for New Episodes</strong>, <strong>Watchlist</strong>, <strong>Add Show to Watchlist</strong>, and <strong>Settings</strong> buttons on supported EZTV pages.</li>
+        <li>Version 2.0.4 removes uploader/release group suffixes such as <code>-MeGusta[eztvx.to]</code> from saved show names when importing pasted filenames.</li>
         <li>Version 2.0.3 checks built-in EZTV RSS when the EZTV JSON API lags behind.</li>
         <li>Parses RSS magnet links from <code>torrent:magnetURI</code> entries.</li>
         <li>Keeps the 2.0.2 Settings fix, opening Settings in a new extension tab to avoid Brave page/client blocking.</li>
         <li>Keeps your show watchlist in browser storage.</li>
         <li>Imports and exports backup lines like <code>M.I.A | S01E09</code>.</li>
-        <li>Imports qBittorrent-style filenames like <code>Show.Name.S02E06.1080p</code>.</li>
+        <li>Imports qBittorrent/EZTV filenames like <code>Show.Name.S02E06.1080p.HEVC.x265-MeGusta[eztvx.to]</code>.</li>
         <li>Supports whole-season requests like <code>FROM S02E00</code>.</li>
         <li>Checks EZTV, TVMaze, and optional user-added RSS feeds.</li>
       </ul>

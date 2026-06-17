@@ -1,6 +1,6 @@
 # Simple TV Torrent Watcher
 
-Simple TV Torrent Watcher 2.0.3 is a local-first browser extension for Brave, Chrome,
+Simple TV Torrent Watcher 2.0.4 is a local-first browser extension for Brave, Chrome,
 Edge, Opera, Vivaldi, Arc, and other Chromium-based browsers. It adds a watchlist
 and new-episode scanner to supported EZTV pages, can check user-added RSS feeds,
 and can send selected magnet links to a supported torrent client WebUI or to the
@@ -27,7 +27,7 @@ https://sjustaguy-lgtm.github.io/simple-tv-torrent-watcher/privacy-policy.html
   - **Settings**, which opens the extension Settings screen in a new extension tab
 - Keeps a show watchlist in browser storage.
 - Imports and exports backup lines like `M.I.A | S01E09`.
-- Imports qBittorrent-style filenames like `Show.Name.S02E06.1080p`.
+- Imports qBittorrent/EZTV filenames like `Show.Name.S02E06.1080p.HEVC.x265-MeGusta[eztvx.to]` without saving the uploader as part of the show name.
 - Supports season requests like `FROM s02`, `FROM S02E00`, and `FROM season 2`.
 - Uses `S02E00` as a whole-season marker, so episode 1 and newer in that season
   can be found without scanning every older season.
@@ -57,6 +57,7 @@ open magnet links locally.
 Paste into **Add Show to Watchlist** or the bulk import box. The scanner ignores
 codec words such as `HEVC` and `x265` when figuring out the show name. Quality
 words such as `1080p` and `720p` are kept as that show's first quality choice.
+Uploader/release group suffixes such as `-MeGusta[eztvx.to]` are removed from the saved show name.
 
 | What you type | What it does |
 | --- | --- |

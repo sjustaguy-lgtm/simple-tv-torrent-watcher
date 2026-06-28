@@ -27,7 +27,7 @@
   <main>
     <header>
       <h1>Simple TV Torrent Watcher</h1>
-      <p class="muted">Version 2.0.4. A local-first browser extension written for Brave and usable on Chromium-based browsers.</p>
+      <p class="muted">Version 2.0.6. A local-first browser extension written for Brave and usable on Chromium-based browsers.</p>
       <div class="links">
         <a class="button" href="https://chromewebstore.google.com/detail/kdmhdojmjaececadkhjgkcfalgjnfahi?utm_source=item-share-cb">Install from Chrome Web Store</a>
         <a class="button secondary" href="privacy-policy.html">Privacy Policy</a>
@@ -40,6 +40,7 @@
       <p>Simple TV Torrent Watcher adds a watchlist and new-episode scanner to supported EZTV pages, can check user-added RSS feeds, and can send selected magnet links to a supported torrent client WebUI or to the local torrent app on the same computer.</p>
       <ul>
         <li>Adds <strong>Scan for New Episodes</strong>, <strong>Watchlist</strong>, <strong>Add Show to Watchlist</strong>, and <strong>Settings</strong> buttons on supported EZTV pages.</li>
+        <li>Version 2.0.6 reuses shared RSS/feed data during scans so larger watchlists finish faster.</li>
         <li>Version 2.0.4 removes uploader/release group suffixes such as <code>-MeGusta[eztvx.to]</code> from saved show names when importing pasted filenames.</li>
         <li>Version 2.0.3 checks built-in EZTV RSS when the EZTV JSON API lags behind.</li>
         <li>Parses RSS magnet links from <code>torrent:magnetURI</code> entries.</li>
@@ -50,6 +51,12 @@
         <li>Supports whole-season requests like <code>FROM S02E00</code>.</li>
         <li>Checks EZTV, TVMaze, and optional user-added RSS feeds.</li>
       </ul>
+    </section>
+
+    <section>
+      <h2>Latest Update</h2>
+      <p>Version 2.0.6 improves scan speed by fetching shared EZTV RSS and custom RSS data once per scan instead of repeating the same feed requests for every show. It also skips extra TVMaze lookups when a saved IMDB id already exists and adds timeouts for slow mirrors.</p>
+      <p>No permissions or storage keys changed, so existing watchlists and settings remain in browser storage.</p>
     </section>
 
     <section>

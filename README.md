@@ -1,6 +1,6 @@
 # Simple TV Torrent Watcher
 
-Simple TV Torrent Watcher 2.0.4 is a local-first browser extension for Brave, Chrome,
+Simple TV Torrent Watcher 2.0.6 is a local-first browser extension for Brave, Chrome,
 Edge, Opera, Vivaldi, Arc, and other Chromium-based browsers. It adds a watchlist
 and new-episode scanner to supported EZTV pages, can check user-added RSS feeds,
 and can send selected magnet links to a supported torrent client WebUI or to the
@@ -35,8 +35,22 @@ https://sjustaguy-lgtm.github.io/simple-tv-torrent-watcher/privacy-policy.html
 - Uses TVMaze to help resolve show names.
 - Checks EZTV through its public API and built-in EZTV RSS fallback when the API lags.
 - Checks optional user-added RSS feeds that include torrent links or magnet links.
+- Reuses shared RSS/feed data during scans so larger watchlists do not re-download
+  the same feeds for every show.
 - Sends selected magnets to supported WebUI/RPC clients, or opens magnet links
   through the local torrent app.
+
+## What Changed In 2.0.6
+
+- Speeds up full watchlist scans by fetching built-in EZTV RSS and custom RSS
+  feeds once per scan instead of once per show.
+- Reuses the same short-lived scan cache for the live EZTV-page scanner.
+- Skips TVMaze title lookup during normal scans when a show already has a saved
+  IMDB id.
+- Adds network timeouts so one slow mirror or feed cannot hold the scan open
+  forever.
+- Keeps the same permissions and storage keys, so existing watchlists and
+  settings stay in browser storage.
 
 ## Supported Torrent Clients
 

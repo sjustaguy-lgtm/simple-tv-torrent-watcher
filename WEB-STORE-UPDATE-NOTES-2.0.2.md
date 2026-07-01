@@ -26,3 +26,7 @@ The extension continues to use fixed host permissions for TVMaze, EZTV mirrors, 
 ## Suggested review note
 
 Simple TV Torrent Watcher 2.0.2 is a bugfix update. It fixes the EZTV-page Settings button by opening Settings from the extension background in a new extension tab, avoiding Brave client blocking of direct extension URLs from webpage context. It also keeps optional WebUI/RSS host access limited to user-entered addresses and user-triggered Settings actions. The extension does not collect browsing history, does not transmit user data to the developer, and stores watchlists/settings locally in `chrome.storage.local`.
+
+## Privacy policy update
+
+The privacy policy has been updated to mention user-configured RSS feeds and user-configured torrent client WebUI/RPC addresses.

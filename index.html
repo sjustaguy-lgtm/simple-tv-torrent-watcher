@@ -27,7 +27,7 @@
   <main>
     <header>
       <h1>Simple TV Torrent Watcher</h1>
-      <p class="muted">Version 2.0.6. A local-first browser extension written for Brave and usable on Chromium-based browsers.</p>
+      <p class="muted">Version 2.0.7. A local-first browser extension written for Brave and usable on Chromium-based browsers.</p>
       <div class="links">
         <a class="button" href="https://chromewebstore.google.com/detail/kdmhdojmjaececadkhjgkcfalgjnfahi?utm_source=item-share-cb">Install from Chrome Web Store</a>
         <a class="button secondary" href="privacy-policy.html">Privacy Policy</a>
@@ -40,22 +40,21 @@
       <p>Simple TV Torrent Watcher adds a watchlist and new-episode scanner to supported EZTV pages, can check user-added RSS feeds, and can send selected magnet links to a supported torrent client WebUI or to the local torrent app on the same computer.</p>
       <ul>
         <li>Adds <strong>Scan for New Episodes</strong>, <strong>Watchlist</strong>, <strong>Add Show to Watchlist</strong>, and <strong>Settings</strong> buttons on supported EZTV pages.</li>
-        <li>Version 2.0.6 reuses shared RSS/feed data during scans so larger watchlists finish faster.</li>
-        <li>Version 2.0.4 removes uploader/release group suffixes such as <code>-MeGusta[eztvx.to]</code> from saved show names when importing pasted filenames.</li>
-        <li>Version 2.0.3 checks built-in EZTV RSS when the EZTV JSON API lags behind.</li>
-        <li>Parses RSS magnet links from <code>torrent:magnetURI</code> entries.</li>
-        <li>Keeps the 2.0.2 Settings fix, opening Settings in a new extension tab to avoid Brave page/client blocking.</li>
+        <li>Opens Settings in a new extension tab, avoiding Brave page/client blocking on extension URLs.</li>
         <li>Keeps your show watchlist in browser storage.</li>
         <li>Imports and exports backup lines like <code>M.I.A | S01E09</code>.</li>
         <li>Imports qBittorrent/EZTV filenames like <code>Show.Name.S02E06.1080p.HEVC.x265-MeGusta[eztvx.to]</code>.</li>
+        <li>Removes uploader/release group suffixes such as <code>-MeGusta[eztvx.to]</code> from saved show names.</li>
         <li>Supports whole-season requests like <code>FROM S02E00</code>.</li>
         <li>Checks EZTV, TVMaze, and optional user-added RSS feeds.</li>
+        <li>Parses RSS magnet links from <code>torrent:magnetURI</code> entries.</li>
+        <li>Reuses shared feed data during scans so larger watchlists finish faster.</li>
       </ul>
     </section>
 
     <section>
       <h2>Latest Update</h2>
-      <p>Version 2.0.6 improves scan speed by fetching shared EZTV RSS and custom RSS data once per scan instead of repeating the same feed requests for every show. It also skips extra TVMaze lookups when a saved IMDB id already exists and adds timeouts for slow mirrors.</p>
+      <p>Version 2.0.7 fixes scan/import edge cases: whole-season markers such as <code>S02E00</code> stay valid, older imports cannot move saved episode markers backward, and EZTV API/RSS mirrors are checked more reliably.</p>
       <p>No permissions or storage keys changed, so existing watchlists and settings remain in browser storage.</p>
     </section>
 
@@ -96,6 +95,7 @@
         <li><a href="privacy-policy.html">Privacy policy</a></li>
         <li><a href="https://github.com/sjustaguy-lgtm/simple-tv-torrent-watcher">GitHub repository</a></li>
         <li><a href="https://chromewebstore.google.com/detail/kdmhdojmjaececadkhjgkcfalgjnfahi?utm_source=item-share-cb">Chrome Web Store listing</a></li>
+        <li><a href="webstore/chrome-web-store-upload-2.0.7.zip">Chrome Web Store upload package 2.0.7</a></li>
       </ul>
     </section>
 

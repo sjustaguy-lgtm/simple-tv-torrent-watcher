@@ -1,6 +1,6 @@
-# Simple TV Torrent Watcher Add-on 2.0.7.5
+# Simple TV Torrent Watcher Add-on 2.0.71.5
 
-Simple TV Torrent Watcher 2.0.7.5 is a local-first browser extension for Brave, Chrome,
+Simple TV Torrent Watcher 2.0.71.5 is a local-first browser extension for Brave, Chrome,
 Edge, Opera, Vivaldi, Arc, and other Chromium-based browsers. It adds a watchlist
 and new-episode scanner to supported EZTV pages, can check user-added RSS feeds,
 and can send selected magnet links to a supported torrent client WebUI or to the
@@ -26,7 +26,7 @@ local torrent app on the same computer.
 - Or open magnet links through the same-computer torrent app.
 - Pre-fill show info when opened on an EZTV show page.
 
-## What changed in 2.0.7.5
+## What changed in 2.0.71.5
 
 - Keeps the qBittorrent 5.2 WebUI compatibility fix.
 - Repairs saved names such as `Futurama MeGusta EZTV` back to `Futurama` during scan.
@@ -162,11 +162,11 @@ a magnet link or torrent link.
 
 ## Current Web Store Package
 
-- `webstore/chrome-web-store-upload-2.0.7.5.zip`
+- `webstore/chrome-web-store-upload-2.0.71.5.zip`
 
-## Chrome Web Store 2.0.7.5 Permission Notes
+## Chrome Web Store 2.0.71.5 Permission Notes
 
-Version 2.0.7.5 uses optional host permissions for user-entered WebUI and RSS addresses.
+Version 2.0.71.5 uses optional host permissions for user-entered WebUI and RSS addresses.
 That means the extension does not need full network access at install time. When a
 user saves a remote qBittorrent/Transmission/Deluge/uTorrent/BitTorrent/aria2 host,
 or adds a custom RSS feed, the browser asks permission only for that exact address.

@@ -1,6 +1,6 @@
-# Simple TV Torrent Watcher Add-on 2.0.7.2
+# Simple TV Torrent Watcher Add-on 2.0.7.5
 
-Simple TV Torrent Watcher 2.0.7.2 is a local-first browser extension for Brave, Chrome,
+Simple TV Torrent Watcher 2.0.7.5 is a local-first browser extension for Brave, Chrome,
 Edge, Opera, Vivaldi, Arc, and other Chromium-based browsers. It adds a watchlist
 and new-episode scanner to supported EZTV pages, can check user-added RSS feeds,
 and can send selected magnet links to a supported torrent client WebUI or to the
@@ -26,13 +26,14 @@ local torrent app on the same computer.
 - Or open magnet links through the same-computer torrent app.
 - Pre-fill show info when opened on an EZTV show page.
 
-## What changed in 2.0.7.2
+## What changed in 2.0.7.5
 
-- Keeps the qBittorrent 5.2 WebUI compatibility fix from 2.0.7.1.
+- Keeps the qBittorrent 5.2 WebUI compatibility fix.
+- Repairs saved names such as `Futurama MeGusta EZTV` back to `Futurama` during scan.
+- Cleans trailing `MeGusta`, `TGx`, `EZTV`, and `EZTVx.to` tags when importing copied torrent names.
+- Keeps exact new episode matches visible even when EZTV reports zero seeders.
+- Keeps strict title matching for RSS/custom-feed rows and API rows, so names like `Daredevil Born Again`, `Scrubs 2026`, and `M.I.A` still stay exact.
 - Treats a saved season target as a starting season, so a show saved from season 4 can still move to season 5.
-- Fixes season-date checks so a dated `S05E01` is detected after a show has finished season 4.
-- Allows trusted EZTV API results fetched by IMDB id to match even when the release title omits a year from a year-disambiguated show.
-- Keeps strict title matching for RSS/custom-feed rows, so names like `Daredevil Born Again`, `Scrubs 2026`, and `M.I.A` still stay exact.
 - Keeps the same permissions and storage keys, so existing watchlists and settings stay in browser storage.
 
 ## What it cannot do without a native helper
@@ -161,11 +162,11 @@ a magnet link or torrent link.
 
 ## Current Web Store Package
 
-- `webstore/chrome-web-store-upload-2.0.7.2.zip`
+- `webstore/chrome-web-store-upload-2.0.7.5.zip`
 
-## Chrome Web Store 2.0.7.2 Permission Notes
+## Chrome Web Store 2.0.7.5 Permission Notes
 
-Version 2.0.7.2 uses optional host permissions for user-entered WebUI and RSS addresses.
+Version 2.0.7.5 uses optional host permissions for user-entered WebUI and RSS addresses.
 That means the extension does not need full network access at install time. When a
 user saves a remote qBittorrent/Transmission/Deluge/uTorrent/BitTorrent/aria2 host,
 or adds a custom RSS feed, the browser asks permission only for that exact address.

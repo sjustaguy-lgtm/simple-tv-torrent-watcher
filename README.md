@@ -1,172 +1,163 @@
-# Simple TV Torrent Watcher Add-on 2.0.71.5
+# Simple TV Torrent Watcher 2.0.72.0
 
-Simple TV Torrent Watcher 2.0.71.5 is a local-first browser extension for Brave, Chrome,
-Edge, Opera, Vivaldi, Arc, and other Chromium-based browsers. It adds a watchlist
-and new-episode scanner to supported EZTV pages, can check user-added RSS feeds,
-and can send selected magnet links to a supported torrent client WebUI or to the
-local torrent app on the same computer.
+A browser extension for Brave, Chrome, Edge, Arc, Opera and Vivaldi. No desktop
+helper, Python installation or separate server is required.
 
-## What it can do
+## What Changed
 
-- Keep a show watchlist in browser storage.
-- Add visible buttons directly on EZTV pages:
-  - **Scan for New Episodes**
-  - **Watchlist**
-  - **Add Show to Watchlist**
-  - **Settings** opens the extension Settings screen in a new extension tab.
-- Import/export backup lines like `M.I.A | S01E09`.
-- Import qBittorrent-style filenames like `Show.Name.S02E06.1080p`.
-- Add season targets like `The Boys season 4` or `The Boys s4`.
-- Add whole-season requests like `FROM S02E00`.
-- Check EZTV through its JSON API and built-in EZTV RSS fallback when the API lags.
-- Check extra user-added RSS feeds that include torrent links or magnet links.
-- Resolve show names through TVMaze.
-- Reuse shared RSS/feed data during a scan so larger watchlists do not re-download the same feeds for every show.
-- Send magnets to supported WebUI/RPC clients on this or another computer.
-- Or open magnet links through the same-computer torrent app.
-- Pre-fill show info when opened on an EZTV show page.
+- One title parser for the popup, page toolbar and imports.
+- Copied episode titles no longer become part of the show name.
+- Years and regional editions stay distinct. Punctuation and letter case do not
+  affect matching, including `M.I.A`, `M I A` and `MIA`.
+- Adding a show offers **Only new / future episodes** or **Add all prior episodes too**.
+- Quality is chosen before file size. At the same quality, the smaller known file wins.
+- Optional Pirate Bay search, page buttons and per-release Add buttons.
+- Failed or unchecked older episodes remain available after a later episode is sent.
+- New-season transitions remain enabled; season requests set a starting season.
+- Season-date checks keep currently airing shows and unhandled aired episodes active.
+- Full watchlist backups preserve individual episode history without client credentials.
+- Existing watchlists and connection settings use the same browser storage keys.
 
-## What changed in 2.0.71.5
+## Add A Show
 
-- Keeps the qBittorrent 5.2 WebUI compatibility fix.
-- Repairs saved names such as `Futurama MeGusta EZTV` back to `Futurama` during scan.
-- Cleans trailing `MeGusta`, `TGx`, `EZTV`, and `EZTVx.to` tags when importing copied torrent names.
-- Keeps exact new episode matches visible even when EZTV reports zero seeders.
-- Keeps strict title matching for RSS/custom-feed rows and API rows, so names like `Daredevil Born Again`, `Scrubs 2026`, and `M.I.A` still stay exact.
-- Treats a saved season target as a starting season, so a show saved from season 4 can still move to season 5.
-- Keeps the same permissions and storage keys, so existing watchlists and settings stay in browser storage.
+The default option is **Only new / future episodes**:
 
-## What it cannot do without a native helper
-
-- Scan local drives like `M:\`.
-- Silently control arbitrary desktop torrent-adder programs.
-- Write files to arbitrary folders.
-
-Those are browser security limits, not project limits.
-
-## Best Ways To Add A Show
-
-Paste into **Add Show to Watchlist** or the bulk import box. The scanner ignores
-codec words such as `HEVC` and `x265` when figuring out the show name. Quality
-words such as `1080p` and `720p` are kept as that show's first quality choice.
-Uploader/release group suffixes such as `-MeGusta[eztvx.to]` are removed from the saved show name.
-
-| What you type | What it does |
+| What you paste | Starting point |
 | --- | --- |
-| `FROM` | Adds the show and tracks it from now on. |
-| `FROM s02` | Adds season 2 and starts from `S02E00`, so episode 1 and newer in season 2 can be found. |
-| `FROM S02E00` | Same as above; useful when you want the whole season. |
-| `FROM s02e05` | Adds the show with `S02E05` marked as already handled, so scans look for newer season 2 episodes. |
-| `FROM 2x05` | Same as `S02E05` using the alternate episode format. |
-| `FROM season 2` | Same as `s02`; adds the whole season starting from `S02E00`. |
-| `FROM season 2 episode 5` | Same as `S02E05`. |
-| `FROM 1080p s03` | Adds season 3 starting from `S03E00` and prefers `1080p` first. |
-| `FROM S02E00` | Adds `FROM` season 2 from the beginning without scanning every older season. |
-| `M.I.A | S01E09` | Import/export format; saves `M.I.A` with `S01E09` as the last episode already handled. |
+| `FROM` | Episodes from the time you add the show onward. |
+| `FROM S04E05` | Episode 5 is already handled; look for episode 6 and later seasons. |
+| `FROM 4x05` | Same as `S04E05`. |
+| `FROM season 4 episode 5` | Same as `S04E05`. |
+| `FROM S04E00` | Start with episode 1 of season 4, then continue into later seasons. |
+| `FROM s04` or `FROM season 4` | Same starting point as `S04E00`. |
+| `FROM 1080p s04` | Start at season 4 and prefer 1080p. |
+| `M.I.A \| S01E09` | Backup format: episode 9 is already handled. |
+| `FROM S04E06 The Heart Is A Lonely Hunter 720p HEVC x265-MeGusta [eztv]` | Save FROM, episode 6 already handled, with 720p preferred. |
+| `Boston.Blue.S01E19.1080p.HEVC.x265-MeGusta[eztvx.to]` | Save Boston Blue, episode 19 already handled, with 1080p preferred. |
+| `Scrubs.2026.S01E09.1080p.WEB.x265-MeGusta` | Save Scrubs 2026 separately from the original Scrubs. |
 
-Tip: use `S02E00` when you want the whole season, because it means "I have
-nothing from season 2 yet." Use `S02E05` when you already have episode 5 and only
-want newer episodes.
+A pasted episode number always means **you already have that episode**, unless
+you explicitly select **Add all prior episodes too**. Choosing all prior
+episodes clears that starting marker and includes available older episodes.
+If you also specify a season, older episodes begin at that season.
 
-## Load It
+For a name without an episode marker, the future-only option uses TVMaze's
+aired-episode dates at the time you added the show. When metadata is unavailable,
+existing releases provide a starting point. Supplying an episode marker is the
+most precise choice when you already have some episodes.
 
-### Arc / Brave / Chrome / Edge / Opera / Vivaldi
+Scans show results for review. **Send Selected** sends the checked releases;
+**I Already Have Selected** records those individual episodes without sending them.
+The last-episode display advances, but failed or unchecked results are retained.
 
-1. Open `chrome://extensions`.
-2. Turn on **Developer mode**.
-3. Click **Load unpacked**.
-4. Select this `ARC_BRAVE_CHROME_EDGE_OPERA_VIVALDI_LOAD_UNPACKED` folder.
+## Quality And File Size
 
-After replacing files in this folder, go back to `chrome://extensions`, click the
-extension's reload button, then refresh any open EZTV tabs.
+Settings offers three choices:
 
-For Brave, keep this unpacked folder in a permanent location and load this same
-folder each time. The extension ID is pinned so saved browser storage, including
-the watchlist, survives browser restarts when the same folder stays in place.
+| Release selection | Priority |
+| --- | --- |
+| Preferred quality, then smallest file | Your quality order, then file size, then seeder/uploader tie-breakers. |
+| Highest resolution, then smallest file | 2160p, 1080p, 720p, 480p; smaller files break ties at the same resolution. |
+| Preferred uploader, then quality | The older uploader-first behavior. |
 
-Important: Brave/Chrome treat manually loaded add-ons as developer extensions.
-For a truly normal permanent install, the extension must be signed through a
-browser store or installed by browser policy.
+The default quality order is **1080p, 720p**. A quality in a pasted filename
+becomes that show's first choice, including when Highest resolution is selected.
 
-## Public Pages
+Example: **1080p EDITH at 1 GB** versus **1080p MeGusta at 450 MB** selects
+MeGusta in either size-aware mode. An available 1080p release still beats a
+smaller 720p release when 1080p is first in your quality order.
 
-- `index.html` is the public project page.
-- `privacy-policy.html` is the public privacy policy.
-- The installable extension is distributed through the Chrome Web Store link above.
+File sizes come from the release source. Missing sizes are shown as unknown,
+never treated as zero. Preferred minimum seeders is a tie-breaker; it does not
+hide exact episodes with zero reported seeders.
 
-### Firefox
+## Pirate Bay
 
-1. Open `about:debugging#/runtime/this-firefox`.
-2. Click **Load Temporary Add-on**.
-3. Pick `manifest.json` inside this folder.
+1. Open the extension's **Settings**.
+2. Enable **Search Pirate Bay too** and click **Save**.
+3. Approve access to `apibay.org` and `thepiratebay.org`.
+4. Reload any open Pirate Bay tabs.
 
-## Torrent Client Setup
+The watchlist scanner searches Pirate Bay as well as EZTV and configured RSS feeds.
+The same title, episode and quality checks apply to all sources. The toolbar
+also works on Pirate Bay pages, and episode search rows have a **+** Add button.
 
-Open **Settings** and choose:
+Support covers the official `thepiratebay.org` domain, including its HTTP pages.
+Arbitrary mirrors are not automatically trusted. Only TV-category, individual
+episode releases are included; season-pack torrents are not expanded into
+episodes. Source availability and search caps can limit older results. Search
+warnings are displayed instead of silently claiming the source succeeded.
 
-- **WebUI / direct connection** when you want the extension to send straight to a torrent client.
-- **Same computer torrent app** when you want the browser to open magnet links locally.
+## Import And Export
 
-Direct WebUI/RPC support is included for:
+Open **Add** / **Add Show to Watchlist**, then expand **Import / export watchlist**.
 
-- qBittorrent
-- Transmission
-- Deluge
-- uTorrent
-- BitTorrent
-- aria2
+- **Copy export** produces familiar lines such as `M.I.A | S01E09`.
+- Paste names, copied filenames or export lines into the import box, then click Import.
+- **Copy full backup** produces JSON with starting points, episode history and
+  future-only/all-prior choices. Paste it into the same import box to restore.
+- Full backups exclude torrent-client settings, passwords and credentials.
+- Simple text lines treat the saved marker as all earlier episodes already
+  handled. Use the full backup to preserve gaps and individual send history.
 
-Common host defaults:
+## Torrent Clients
 
-- qBittorrent: `http://localhost:8080`
-- Transmission: `http://localhost:9091`
-- Deluge: `http://localhost:8112`
-- uTorrent / BitTorrent: `http://localhost:8080`
-- aria2: `http://localhost:6800/jsonrpc`
+Direct WebUI/RPC sending supports qBittorrent, Transmission, Deluge, uTorrent,
+BitTorrent and aria2. Same-computer mode opens magnets in your registered app.
 
-For qBittorrent:
+| Client | Common local address |
+| --- | --- |
+| qBittorrent | `http://localhost:8080` |
+| Transmission | `http://localhost:9091` |
+| Deluge | `http://localhost:8112` |
+| uTorrent / BitTorrent | `http://localhost:8080` |
+| aria2 | `http://localhost:6800/jsonrpc` |
 
-1. Open **Tools -> Options -> Web UI**.
-2. Enable the Web UI.
-3. Set the username and password.
-4. If the add-on is on a different computer, allow that computer on your LAN/firewall.
+For another computer, enter its WebUI IP address instead of localhost.
+Enable the client's WebUI, enter credentials in the extension's Settings,
+click Save, approve that host's permission prompt, then click Test Client.
 
-Then open the extension popup **Settings**, choose qBittorrent, enter the host,
-username, password, and click **Test Client**. If you are on an EZTV page, the
-toolbar **Settings** button opens this same Settings screen in a new extension tab.
+Extra RSS feeds can be entered as `My Feed | https://example.com/rss.xml`,
+one per line. Each address requires your approval. Feeds need episode titles
+and magnet/torrent links; enclosure sizes enable file-size comparisons.
 
-If qBittorrent refuses the add-on even with the right password, check Web UI security
-settings. Some qBittorrent setups block browser-extension requests with CSRF protection.
-For a trusted home LAN setup, either allow local/LAN clients in qBittorrent Web UI
-settings or use the add-on's **Same computer torrent app** mode instead.
+Auto-check is disabled by default. If enabled at 15 minutes or more, it scans
+and sends pending episodes automatically using your saved delivery mode.
 
-## Extra RSS Feeds
+## Install Or Update
 
-Open **Settings** and paste one RSS feed per line in **Extra RSS feeds**.
+For a normal installation, use the published Chrome Web Store listing:
+https://chromewebstore.google.com/detail/kdmhdojmjaececadkhjgkcfalgjnfahi
 
-Use this format when you want a label:
+For a local unpacked copy:
 
-```text
-My Feed Name | https://example.com/rss.xml
-```
+1. Extract the sharing ZIP to a permanent folder.
+2. Open your browser's Extensions page and enable Developer mode.
+3. Click Load unpacked and select the folder containing `manifest.json`.
+4. Keep the folder in that location.
 
-Or paste only the feed URL:
+Use `brave://extensions` in Brave, `chrome://extensions` in Chrome/Arc,
+`edge://extensions` in Edge, `opera://extensions` in Opera, or
+`vivaldi://extensions` in Vivaldi.
 
-```text
-https://example.com/rss.xml
-```
+To update an existing unpacked installation, replace its files in the same
+folder, click its Reload button, and refresh open EZTV/Pirate Bay tabs.
+**Do not remove and reinstall the extension** to apply this update.
+This update does not clear browser storage. Store and unpacked installations
+have separate extension identities and therefore separate watchlists.
 
-The extension will ask permission for each feed address you add. Custom RSS feeds
-must include normal episode filenames such as `Show.Name.S02E06.1080p` and either
-a magnet link or torrent link.
+This package targets Chromium browsers. It is not a signed Firefox or Safari
+extension. A ZIP is an upload/sharing package, not a bypass for browser-store
+installation requirements.
 
-## Current Web Store Package
+## Permission Notes
 
-- `webstore/chrome-web-store-upload-2.0.71.5.zip`
+`storage` keeps settings and episode history locally. `alarms` supports
+optional automatic scans. `activeTab` reads the current supported page after
+you open the popup. `declarativeNetRequest` supports qBittorrent WebUI request
+headers. `scripting` registers the bundled page toolbar on Pirate Bay only
+after you enable that source and grant its optional host access.
 
-## Chrome Web Store 2.0.71.5 Permission Notes
-
-Version 2.0.71.5 uses optional host permissions for user-entered WebUI and RSS addresses.
-That means the extension does not need full network access at install time. When a
-user saves a remote qBittorrent/Transmission/Deluge/uTorrent/BitTorrent/aria2 host,
-or adds a custom RSS feed, the browser asks permission only for that exact address.
+Existing required hosts are TVMaze, EZTV and loopback addresses. Pirate Bay,
+user-entered WebUI addresses and RSS sources use optional site permissions.
+No remote executable code, analytics or client credentials are bundled.

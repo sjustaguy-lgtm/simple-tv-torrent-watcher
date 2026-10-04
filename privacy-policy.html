@@ -14,7 +14,7 @@
 <body>
 
     <h1>Privacy Policy for Simple TV Torrent Watcher</h1>
-    <p><strong>Effective Date:</strong> May 22, 2026</p>
+    <p><strong>Effective Date:</strong> October 4, 2026</p>
 
     <p>Simple TV Torrent Watcher is committed to providing a secure, transparent, and localized user experience. This Privacy Policy outlines our data management principles and practices.</p>
 
@@ -30,9 +30,11 @@
     <ul>
         <li><strong>TVMaze API:</strong> Title resolution queries may be sent to public TVMaze metadata endpoints to cross-reference show title text. No user-specific tokens are sent during these lookups.</li>
         <li><strong>EZTV Page/API Access:</strong> The extension reads supported EZTV pages and related public endpoint responses to compare visible release information against your local watchlist. The extension does not upload analytics or tracking data from these actions.</li>
+        <li><strong>Optional Pirate Bay Access:</strong> If you enable Pirate Bay in Settings and grant site access, show-title search terms are sent directly to API Bay at apibay.org. The extension reads those release responses and can add its toolbar on the official thepiratebay.org pages. Torrent-client credentials are not sent to these services.</li>
         <li><strong>User-Configured RSS Feeds:</strong> If the user adds an RSS feed URL, the extension may request that feed directly from the browser to compare release titles against the local watchlist. RSS feed addresses are stored locally and are not sent to the developer.</li>
-        <li><strong>Local Client RPC/WebUI:</strong> When configured by the user, selected magnet links may be sent directly to the user's own torrent client WebUI/RPC endpoint over localhost or a local/private network address. These requests are sent directly from the browser to the user-configured client.</li>
+        <li><strong>Client RPC/WebUI:</strong> When configured by the user, selected magnet links and any required client credentials are sent directly to the user's torrent client WebUI/RPC endpoint. The address may be localhost, a private network address, or a remote address chosen by the user. These requests do not pass through the developer.</li>
     </ul>
+    <p>Third-party metadata, release and RSS services receive the requested search terms or identifiers and ordinary connection information, including your IP address. Their own privacy policies apply. The developer receives none of these requests. Copy Full Backup exports only watchlist information and episode history, excluding client credentials and connection settings.</p>
 
     <div class="highlight-box">
         <h2>3. Chrome Web Store Limited Use Compliance</h2>
